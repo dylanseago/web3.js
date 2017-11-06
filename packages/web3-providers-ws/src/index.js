@@ -118,12 +118,12 @@ WebsocketProvider.prototype.addDefaultEvents = function(){
  @method _parseResponse
  @param {String} data
  */
-WebsocketProvider.prototype._parseResponse = function(data) {
+WebsocketProvider.prototype._parseResponse = function(response) {
     var _this = this,
         returnValues = [];
 
     // DE-CHUNKER
-    var dechunkedData = data
+    var dechunkedData = response
         .replace(/\}[\n\r]?\{/g,'}|--|{') // }{
         .replace(/\}\][\n\r]?\[\{/g,'}]|--|[{') // }][{
         .replace(/\}[\n\r]?\[\{/g,'}|--|[{') // }[{
